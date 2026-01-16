@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: url("photo.jpg") no-repeat center center/cover;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Dark overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 45px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #f0c040;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 80%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+/* Dark overlay for readability */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+/* Typography scaling for mobile */
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 12px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    line-height: 1.5;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+    }
+
+    .hero-video {
+        height: 90%;
+        width: 90%;
+        object-fit: cover;
+    }
+}
+
+
+/* Sections */
+.section {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.dark {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+/* Service Card */
+.section {
+  padding: 4rem 2rem;
+}
+
+#services h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.service-box {
+  background: #111;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.service-header p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.5rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.service-box {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+}
+.image-grid img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* Video / Media */
+.media-box video {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.about-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.about-image img {
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.about-text {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Contact */
+.contact-cta {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-blue {
+    background-color: #2563eb; /* blue */
+    color: #ffffff;
+    padding: 12px 28px; /* medium size */
+    font-size: 16px;
+    display: inline-block;
+}
+
+.btn-blue:hover {
+    background-color: #1e40af; /* darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #f0c040;
+    font-weight: bold;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .contact {
+        padding: 80px 20px;
+    }
+
+    .submit-btn {
+        width: auto;
+        align-self: center;
+        padding: 12px 32px;
+    }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+}
+/* Lightbox Overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* Show Lightbox */
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image */
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  animation: zoomIn 0.35s ease;
+}
+
+/* Close Button */
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Make images clickable */
+.image-grid img {
+  cursor: pointer;
+}
