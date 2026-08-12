@@ -28,6 +28,7 @@ button, input, textarea, select { font: inherit; }
 .brand-mark { color: var(--red); font-size: 38px; transform: skewX(-8deg); }
 .brand-text { color: #e9e9e9; }
 .brand small { position: absolute; left: 25px; top: 31px; font-family: var(--body); font-size: 9px; letter-spacing: 5px; color: #fff; }
+.brand-logo { width: 148px; max-width: 100%; height: auto; }
 .main-nav { margin-left: auto; display: flex; align-items: center; gap: 28px; }
 .main-nav a { font-family: var(--display); text-transform: uppercase; font-size: 13px; letter-spacing: .7px; color: #ddd; transition: .2s ease; }
 .main-nav a:hover, .main-nav a.active { color: var(--gold); }
@@ -80,12 +81,15 @@ button, input, textarea, select { font: inherit; }
 .camera-lens { position: absolute; width: 89px; height: 89px; border-radius: 50%; left: -23px; top: 15px; border: 14px solid #171717; background: radial-gradient(circle at 40% 38%, #51606b, #0b1116 34%, #050505 60%, #333 63%, #0a0a0a 74%); box-shadow: 0 0 0 5px #3a3a3a; }
 
 .service-strip { background: #080808; border-bottom: 1px solid var(--border); }
-.strip-grid { min-height: 88px; display: grid; grid-template-columns: repeat(5,1fr); align-items: stretch; }
+.strip-grid { min-height: 88px; display: grid; grid-template-columns: repeat(4,1fr); align-items: stretch; }
 .strip-item { display: grid; grid-template-columns: 46px 1fr; gap: 12px; align-items: center; padding: 16px 15px; border-right: 1px solid rgba(255,255,255,.13); }
 .strip-item:first-child { border-left: 1px solid rgba(255,255,255,.13); }
 .strip-item .icon { font-size: 31px; color: var(--gold); line-height: 1; }
 .strip-item strong { display: block; font: 700 12px var(--display); text-transform: uppercase; color: var(--gold); }
 .strip-item small { display: block; font-size: 9px; color: #d2d2ce; line-height: 1.35; }
+
+.section-dark { background: #080808; }
+.about, .portfolio { padding: 76px 0; }
 
 .about-grid {
   display: grid;
@@ -244,13 +248,38 @@ button, input, textarea, select { font: inherit; }
 .service-card p { color: #d1d1ce; font-size: 11px; line-height: 1.55; min-height: 68px; }
 .service-card a { color: var(--gold); font: 700 10px var(--display); text-transform: uppercase; }
 
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.portfolio-copy p {
+  max-width: 430px;
+  color: #d2d2ce;
+  font-size: 14px;
+}
+
+.portfolio-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: center;
+}
+
 .portfolio-image {
   position: relative;
-  height: 130px;
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
   overflow: hidden;
-  background: #000;
-  border-radius: 6px;
-  cursor: pointer;
+  background: #0a0a0a;
+  border-radius: 6px 6px 0 0;
+  cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
 }
 
 /* Hover message */
@@ -274,8 +303,8 @@ button, input, textarea, select { font: inherit; }
 
 .view-overlay span {
   color: #f4b400;
-  font-size: 11px;
-  font-weight: 900;
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 1.5px;
 
   padding: 9px 13px;
@@ -296,7 +325,8 @@ button, input, textarea, select { font: inherit; }
   height: 100%;
   display: block;
 
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 
   transition: transform 0.4s ease;
 }
@@ -308,19 +338,7 @@ button, input, textarea, select { font: inherit; }
 /* Dark gradient over bottom of image */
 
 .portfolio-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    transparent 45%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
-
-  pointer-events: none;
-
-  z-index: 1;
+  content: none;
 }
 
 
@@ -377,19 +395,11 @@ button, input, textarea, select { font: inherit; }
 ======================================== */
 
 .portfolio-label {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  padding: 10px 12px;
-
-  background: linear-gradient(
-    transparent,
-    rgba(0, 0, 0, 0.95)
-  );
-
+  position: relative;
+  padding: 14px 16px 16px;
+  min-height: 72px;
+  background: #111;
+  border-top: 1px solid rgba(244, 180, 0, 0.18);
   z-index: 3;
 }
 
@@ -628,7 +638,8 @@ button, input, textarea, select { font: inherit; }
   }
 
   .portfolio-image {
-    height: 180px;
+    min-height: 240px;
+    aspect-ratio: 4 / 3;
   }
 
 }
@@ -675,7 +686,8 @@ button, input, textarea, select { font: inherit; }
   }
 
   .portfolio-image {
-    height: 140px;
+    min-height: 210px;
+    aspect-ratio: 4 / 3;
   }
 
   .portfolio-label {
@@ -721,7 +733,7 @@ button, input, textarea, select { font: inherit; }
   .main-nav { gap: 17px; }
   .nav-cta { display: none; }
   .service-cards { grid-template-columns: repeat(3,1fr); }
-  .strip-grid { grid-template-columns: repeat(5, 1fr); }
+  .strip-grid { grid-template-columns: repeat(4, 1fr); }
   .strip-item { grid-template-columns: 1fr; text-align: center; }
 }
 
@@ -739,7 +751,6 @@ button, input, textarea, select { font: inherit; }
   .phone { right: 2%; }
   .camera-shape { right: -85px; }
   .strip-grid { grid-template-columns: repeat(2,1fr); }
-  .strip-item:nth-child(5) { grid-column: 1 / -1; }
   .about-grid { gap: 18px; }
   .studio-card { min-height: 300px; }
   .service-cards { grid-template-columns: repeat(2,1fr); }
@@ -763,7 +774,6 @@ button, input, textarea, select { font: inherit; }
   .phone-screen strong { font-size: 13px; }
   .camera-shape { display: none; }
   .strip-grid { grid-template-columns: 1fr; }
-  .strip-item:nth-child(5) { grid-column: auto; }
   .strip-item { grid-template-columns: 44px 1fr; text-align: left; border-left: 1px solid rgba(255,255,255,.13); }
   .service-cards { grid-template-columns: 1fr; }
   .service-card { min-height: 230px; }
