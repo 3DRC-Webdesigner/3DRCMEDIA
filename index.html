@@ -17,7 +17,7 @@
         <img class="brand-logo" src="3drc-logo.png" alt="3DRC Media — Built for Vision. Designed to Perform.">
       </a>
 
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
@@ -305,6 +305,7 @@
   <button
     class="lightbox-close"
     id="lightboxClose"
+    type="button"
     aria-label="Close project"
   >
     &times;
@@ -312,7 +313,6 @@
 
   <div class="lightbox-content">
     <img
-      src=""
       alt=""
       id="lightboxImage"
     >
@@ -321,7 +321,6 @@
   </div>
 
 </div>
-</section>
 
     <section class="cta-band" id="pricing">
       <div class="container cta-inner">
@@ -433,8 +432,8 @@
         <small>© 2019 3DRC MEDIA. All Rights Reserved.</small>
       </div>
       <div><h4>Quick Links</h4><a href="#top">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#contact">Get a Quote</a></div>
-      <div><h4>Contact Us</h4><a href="tel:+1256776192">(254) 677-6192</a><a href="mailto:media@3drcmediaphotography.com">media@3drcmediaphotography.com</a><span>Killeen, TX</span></div>
-      <div><h4>Follow Us</h4><div class="socials"><a href="https://www.facebook.com/3DRCMEDIA" aria-label="Facebook">f</a><a href="https://www.instagram.com/3drc_mediaservices/" aria-label="Instagram">◎</a><a href="https://www.youtube.com/@3DRCMEDIA" aria-label="YouTube">▶</div></div>
+      <div><h4>Contact Us</h4><a href="tel:+12546776192">(254) 677-6192</a><a href="mailto:media@3drcmediaphotography.com">media@3drcmediaphotography.com</a><span>Killeen, TX</span></div>
+      <div><h4>Follow Us</h4><div class="socials"><a href="https://www.facebook.com/3DRCMEDIA" aria-label="Facebook">f</a><a href="https://www.instagram.com/3drc_mediaservices/" aria-label="Instagram">◎</a><a href="https://www.youtube.com/@3DRCMEDIA" aria-label="YouTube">▶</a></div></div>
     </div>
   </footer>
 
@@ -445,7 +444,10 @@
       const isOpen = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen);
     });
-    document.querySelectorAll('.main-nav a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
+    document.querySelectorAll('.main-nav a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
   
   <script>
